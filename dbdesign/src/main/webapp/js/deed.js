@@ -6,7 +6,7 @@ $(document).on('click','#submit',function(){
 	form += "<table>";
 	form += "<tr>";
 	form += "<td>name<\/td>";
-	form += "<td><input type=\"text\"><\/input><\/td><\/tr>";
+	form += "<td><input type=\"text\" id=\"name\"><\/input><\/td><\/tr>";
 	form += "<tr>";
 	form += "<td>type<\/td>";
 	form += "<td><input type=\"text\"><\/input><\/td><\/tr><tr>";
@@ -20,7 +20,8 @@ $(document).on('click','#submit',function(){
 	form+="<input type=\"checkbox\">unique<\/input><br>";
 	form+="<input type=\"checkbox\">Auto increment<\/input><br>";
 	form+="<input type=\"checkbox\">foerign key<\/input><br>";
-	form += "<input type=\"submit\" value=\"save\"><\/input><br>";
+	form += "<input type=\"submit\" value=\"save\" onClick=\"displayname()\"><\/input><br>";
+	form+="<p id=\"demo\"><\/p>";
 	form += "";
 	$('.add')[0].innerHTML=form;
 	$('.add').toggle();
