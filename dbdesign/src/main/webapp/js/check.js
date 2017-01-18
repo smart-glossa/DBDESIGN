@@ -1,18 +1,15 @@
 function my(){
  
-    var Name = ("Please enter your name", "Name");
-      var Size = ("Please enter your size ", "1-100");
-      var type=("Please enter your type","int");
-      var defal = ("Please enter your favourite color name", "red");
-     
-   var x=document.createElement("center")
-  document.body.appendChild(x);
-   x.setAttribute("id","cen");
+   var name=$('#Name').val(); 
+   var type=$('#Type').val();  
+   var size=$('#Size').val();  
+   var defaults=$('#Dfult').val();  
+    
+	 var tble="";
+	 tble += "<table><tr>";
+	 tble += "<th>Name<\/th><th>Type<\/th><th>size<\/th><th>defaukts<\/th><\/tr>";
+	 tble += "<tr><td><input type=\"text\" id=\"Name\" value=\""+name+"\"><\/td><td><input type=\"text\" id=\"Type\" value=\""+type+"\"><\/td><td><input type=\"text\" id=\"Size\" value=\""+size+"\"><\/td><td><input type=\"text\" id=\"Dfult\" value=\""+defaults+"\"><\/td><\/tr>";
+	 tble += "<\/table>";
 
-  }
-  function change(){
-   var target = document.getElementById("target");
-   var current = target.src;
-   var url = prompt("change address to:", current);
-   target.src= url;
-}
+	 $('#get')[0].innerHTML=tble;
+ }
