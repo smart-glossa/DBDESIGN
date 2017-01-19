@@ -8,7 +8,7 @@ $(document).on('click','#submit',function(){
 	form += "<td>name<\/td>";
 	form += "<td><input type=\"text\" class=\"Name\"><\/input><\/td><\/tr>";
 	form += "<tr>";
-	form += "<td>type<\/td>";
+	form += "<td>type<\/td>";  
 	form += "<td><input type=\"text\" class=\"Type\"><\/input><\/td><\/tr><tr>";
 	form += "<td>size<\/td>";
 	form += "<td><input type=\"text\" class=\"Size\"><\/input><\/td><\/tr><tr>";
@@ -20,11 +20,11 @@ $(document).on('click','#submit',function(){
 	form+="<input type=\"checkbox\" class=\"key\" value=\"unique\">unique<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key\" value=\"Auto Increment\">Auto increment<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key\" value=\"foerign key\">foerign key<\/input><br>";
-	form += "<input type=\"submit\" value=\"save\" onClick=\"my()\"><\/input><br>";
+	form += "<input type=\"submit\" id=\"send\"  value=\"save\" onClick=\"my()\"><\/input><br>";
 	form+="<p id=\"demo\"><\/p>";
 	form += "";
 	$('.add')[0].innerHTML=form;
-	$('.add').toggle();
+
 	
 });
 });
