@@ -16,10 +16,10 @@ $(document).on('click','#submit',function(){
 	form += "<td><input type=\"text\" class=\"Dfult\"><\/input><\/td><\/tr>";
 	form += "<\/table>";
 	form+="<input type=\"checkbox\" class=\"key\" value=\"primary key\">primary key<\/input><br>";
-	form+="<input type=\"checkbox\" class=\"key\" value=\"Allow nulls\">Allow nulls<\/input><br>";
-	form+="<input type=\"checkbox\" class=\"key\" value=\"unique\">unique<\/input><br>";
-	form+="<input type=\"checkbox\" class=\"key\" value=\"Auto Increment\">Auto increment<\/input><br>";
-	form+="<input type=\"checkbox\" class=\"key\" value=\"foerign key\">foerign key<\/input><br>";
+	form+="<input type=\"checkbox\" class=\"key1\" value=\"Allow nulls\">Allow nulls<\/input><br>";
+	form+="<input type=\"checkbox\" class=\"key2\" value=\"unique\">unique<\/input><br>";
+	form+="<input type=\"checkbox\" class=\"key3\" value=\"Auto Increment\">Auto increment<\/input><br>";
+	form+="<input type=\"checkbox\" class=\"key4\" value=\"foerign key\">foerign key<\/input><br>";
 	form += "<input type=\"submit\" id=\"send\"  value=\"save\" onClick=\"my()\"><\/input><br>";
 	form+="<p id=\"demo\"><\/p>";
 	form += "";
