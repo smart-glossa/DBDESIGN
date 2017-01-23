@@ -4,5 +4,5 @@ $(document).ready(function(){
     });
     $(document).on('click','#send',function(){
     	$('.add').hide();
-    })
+    });
 });

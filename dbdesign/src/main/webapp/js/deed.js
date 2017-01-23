@@ -1,6 +1,19 @@
 $(document).ready(function(){
 
 $(document).on('click','#submit',function(){
+	
+	var tbles="";
+	tbles += "<div id=\"de\"><table>";
+	tbles += "<tr><td>table name<\/td><td><input type=\"text\" id=\"title\"><\/td><\/tr>";
+	tbles += "<tr><td>table comment<\/td><td><textarea type=\"text\"><\/textarea><\/td><\/tr>";
+	tbles += "<\/table>";
+	tbles += "<button id=\"send\">save<\/button><a href=\"\">cencel<\/a><\/div>";
+
+	$('.add')[0].innerHTML=tbles;
+	
+	
+});
+$(document).on('click','#support',function(){
 	var form="";
 	form += "";
 	form += "<table>";
@@ -20,11 +33,10 @@ $(document).on('click','#submit',function(){
 	form+="<input type=\"checkbox\" class=\"key2\" value=\"unique\">unique<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key3\" value=\"Auto Increment\">Auto increment<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key4\" value=\"foerign key\">foerign key<\/input><br>";
-	form += "<input type=\"submit\" id=\"send\"  value=\"save\" onClick=\"my()\"><\/input><br>";
+	form += "<input type=\"submit\" id=\"save\"  value=\"save\" onClick=\"my()\"><\/input><br>";
 	form+="<p id=\"demo\"><\/p>";
 	form += "";
-	$('.add')[0].innerHTML=form;
-
-	
+	$('.done')[0].innerHTML=form;
 });
+
 });
