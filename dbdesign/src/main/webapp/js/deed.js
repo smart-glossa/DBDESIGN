@@ -13,7 +13,7 @@ $(document).on('click','#submit',function(){
 	
 	
 });
-$(document).on('click','#support',function(){
+$(document).on('click','#done',function(){
 	var form="";
 	form += "";
 	form += "<table>";
@@ -36,7 +36,7 @@ $(document).on('click','#support',function(){
 	form += "<input type=\"submit\" id=\"save\"  value=\"save\" onClick=\"my()\"><\/input><br>";
 	form+="<p id=\"demo\"><\/p>";
 	form += "";
-	$('.done')[0].innerHTML=form;
+	$('#get')[0].innerHTML=form;
 });
 
 });
