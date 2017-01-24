@@ -7,7 +7,7 @@ $(document).on('click','#submit',function(){
 	tbles += "<tr><td>table name<\/td><td><input type=\"text\" id=\"title\"><\/td><\/tr>";
 	tbles += "<tr><td>table comment<\/td><td><textarea type=\"text\"><\/textarea><\/td><\/tr>";
 	tbles += "<\/table>";
-	tbles += "<button id=\"send\">save<\/button><a href=\"\">cancel<\/a><\/div>";
+	tbles += "<button id=\"send\" onClick=\"getwords()\">save<\/button><a href=\"\">cancel<\/a><\/div>";
 
 	$('.add')[0].innerHTML=tbles;
 	
@@ -38,5 +38,4 @@ $(document).on('click','#done',function(){
 	form += "";
 	$('#get')[0].innerHTML=form;
 });
-
 });
