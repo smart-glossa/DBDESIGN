@@ -8,9 +8,31 @@
     	<servlet-name>DbdesignServlet</servlet-name>
     	<servlet-class>com.smartglossa.dbdesign.DbdesignServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>UserServlet</display-name>
+    	<servlet-name>UserServlet</servlet-name>
+    	<servlet-class>dbdesign.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>UserServlets</display-name>
+    	<servlet-name>UserServlets</servlet-name>
+    	<servlet-class>User.UserServlets</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>DbdesignServlet</servlet-name>
     	<url-pattern>/DbdesignServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UserServlet</servlet-name>
+    	<url-pattern>/UserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UserServlets</servlet-name>
+    	<url-pattern>/UserServlets</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
