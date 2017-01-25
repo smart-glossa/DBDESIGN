@@ -25,12 +25,14 @@ As of now, we starts referring the following websites
 3. Tables: <br>
    tableId int autonumber primarykey,
    tableName varchar(50),
+   projectId foreign key.
 </p>
 <p>
 4. Columns: <br>
    columnId int autonumber primarykey,
    tableId int foreign key,
    coulmnName varchar(50),
+   dataType varchar(50),
    default varchar(50),
    isPrimaryKey boolean,
    allowNull boolean,
