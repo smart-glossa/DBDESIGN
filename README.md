@@ -57,4 +57,5 @@ As of now, we starts referring the following websites
 1. Have to add all the MySQL Queries used in this project.
    (I)user Add:
  insert into user(name,userName,pass);
+ select *from  user;
 </p>
