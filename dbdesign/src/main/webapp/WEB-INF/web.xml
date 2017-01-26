@@ -15,6 +15,13 @@
     	<servlet-name>ProjectServlet</servlet-name>
     	<servlet-class>com.smartglossa.project.ProjectServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProtableServlet</display-name>
+    	<servlet-name>ProtableServlet</servlet-name>
+    	<servlet-class>com.smartglossa.protable.ProtableServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
     	<servlet-name>UserServlet</servlet-name>
@@ -23,6 +30,10 @@
     <servlet-mapping>
     	<servlet-name>ProjectServlet</servlet-name>
     	<url-pattern>/Project</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProtableServlet</servlet-name>
+    	<url-pattern>/Protable</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.smartglossa.dbdesign.UserConstrant;
 
 public class ProjectClass {
@@ -28,7 +31,55 @@ public class ProjectClass {
 		closeConnection();
 	}
  	}
- 	
+ 	 public JSONArray getall() throws SQLException, ClassNotFoundException {
+         JSONArray result = new JSONArray();
+         try {
+             String query = "select * from project";
+             res = sta.executeQuery(query);
+             while (res.next()) {
+                 JSONObject get = new JSONObject();
+                 get.put("projectId", res.getInt(1));
+                 get.put("proName", res.getString(2));
+                 get.put("description", res.getString(3));
+                 get.put("userName", res.getString(4));
+                
+                 result.put(get);
+             }
+             return result;
+         } finally {
+             closeConnection();
+         }
+     }
+ 	  public JSONObject getone(int projectId) throws SQLException, ClassNotFoundException {
+ 	        JSONObject one = new JSONObject();
+ 	        try {
+ 	            String query = "select * from project where projectId="+projectId;
+ 	            res = sta.executeQuery(query);
+ 	            if (res.next()) {
+ 	            	 one.put("proName", res.getString(2));
+ 	                 one.put("description", res.getString(3));
+ 	                 one.put("userName", res.getString(4));
+ 	                  
+ 	            }
+
+ 	        } finally {
+ 	            closeConnection();
+ 	        }
+ 	        return one;
+
+ 	    }
+ 	  
+ 	 public void deleteproject(int projectId) throws SQLException, ClassNotFoundException {
+ 	       JSONObject delete = new JSONObject();
+ 	        try {
+ 	            String query = "delete from project where projectId="+projectId;
+ 	            sta.execute(query);
+ 	        } finally {
+ 	            closeConnection();
+ 	        }
+ 	    }  
+
+
  	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		con = DriverManager.getConnection("jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
