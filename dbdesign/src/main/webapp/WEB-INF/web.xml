@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>ProjectServlet</servlet-name>
-    	<url-pattern>/ProjectServlet</url-pattern>
+    	<url-pattern>/Project</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

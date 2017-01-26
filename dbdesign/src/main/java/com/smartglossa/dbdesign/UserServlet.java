@@ -47,7 +47,7 @@ public class UserServlet extends HttpServlet {
 			try {
 				UserClass login = new UserClass();
 				log = login.loginUser(userName, pass);
-				log.put("status", 1);
+				
 
 			} catch (Exception e) {
 				log.put("status", 0);

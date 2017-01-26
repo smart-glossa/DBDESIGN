@@ -27,6 +27,16 @@ public class ProjectServlet extends HttpServlet {
 			 String proName = request.getParameter("proName");
 			String description= request.getParameter("description");
 			String userName =request.getParameter("userName");
+			
+			try {
+				ProjectClass Project = new ProjectClass();
+				Project.proAdd(proName,description,userName);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status",0);
+				e.printStackTrace();
+			}
+		response.getWriter().println(obj);	
 	}
 
 }

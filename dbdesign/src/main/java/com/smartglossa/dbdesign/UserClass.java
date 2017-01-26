@@ -34,17 +34,17 @@ public class UserClass {
 		JSONObject log = new JSONObject();
 		try {
 			String query = "select * from user where userName='" + userName + "'AND pass='" + pass + "'";
-			stat.execute(query);
-			/*ResultSet rs = stat.executeQuery(query);
+			//stat.execute(query);
+			ResultSet rs = stat.executeQuery(query);
 			if (rs.next()) {
 				if (userName != "") {
-					log.put("userName", rs.getString(1));
+					log.put("name", rs.getString(1));
 					//log.put("pass", "success");
 				}
 			} else {
 				log.put("status", "error");
 
-			}*/
+			}
 
 		} finally {
 			closeConnection();
