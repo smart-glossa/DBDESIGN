@@ -8,10 +8,21 @@
     	<servlet-name>UserServlet</servlet-name>
     	<servlet-class>com.smartglossa.dbdesign.UserServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProjectServlet</display-name>
+    	<servlet-name>ProjectServlet</servlet-name>
+    	<servlet-class>com.smartglossa.project.ProjectServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
     	<servlet-name>UserServlet</servlet-name>
     	<url-pattern>/User</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProjectServlet</servlet-name>
+    	<url-pattern>/ProjectServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

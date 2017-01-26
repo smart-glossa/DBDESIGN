@@ -30,24 +30,28 @@ public class UserClass {
 			closeConnection();
 		}
 	}
-		 public JSONArray getAll() throws SQLException, ClassNotFoundException {
-		        JSONArray result = new JSONArray();
-		        try {
-		            String qry = "select * from user";
-		            rs = stat.executeQuery(qry);
-		            while (rs.next()) {
-		                JSONObject get = new JSONObject();
-		                get.put("name", rs.getString("name"));
-		                get.put("userName", rs.getString("userName"));
-		                get.put("pass", rs.getString("pass"));
-		               
-		                result.put(get);
-		            }
-		            return result;
-		        } finally {
-		            closeConnection();
-		        }
-		    }
+	public JSONObject loginUser(String userName, String pass) throws SQLException {
+		JSONObject log = new JSONObject();
+		try {
+			String query = "select * from user where userName='" + userName + "'AND pass='" + pass + "'";
+			stat.execute(query);
+			/*ResultSet rs = stat.executeQuery(query);
+			if (rs.next()) {
+				if (userName != "") {
+					log.put("userName", rs.getString(1));
+					//log.put("pass", "success");
+				}
+			} else {
+				log.put("status", "error");
+
+			}*/
+
+		} finally {
+			closeConnection();
+		}
+		return log;
+
+	}
 	
 
 	private void openConnection() throws SQLException, ClassNotFoundException {

@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+
+
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,19 +40,20 @@ public class UserServlet extends HttpServlet {
 				obj.put("message", e.getMessage());
 			}
 			response.getWriter().println(obj);
-		} else if (operation.equals("getAll")) {
-			JSONArray result = new JSONArray();
+		} else if (operation.equals("logIn")) {
+			JSONObject log = new JSONObject();
+			String userName = request.getParameter("userName");
+			String pass = request.getParameter("pass");
 			try {
-				UserClass user = new UserClass();
-				result = user.getAll();
+				UserClass login = new UserClass();
+				log = login.loginUser(userName, pass);
+				log.put("status", 1);
+
 			} catch (Exception e) {
-				JSONObject get = new JSONObject();
-				get.put("status", 0);
-				result.put(get);
+				log.put("status", 0);
 				e.printStackTrace();
 			}
-			response.getWriter().println(result);
-
+			response.getWriter().print(log);
 		}
-	}
+}
 }
