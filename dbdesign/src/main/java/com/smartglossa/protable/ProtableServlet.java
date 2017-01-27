@@ -17,7 +17,13 @@ public class ProtableServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		String operation=request.getParameter("operation");
+		if(operation.equals("protableAdd")){
+		String tableName=request.getParameter("tableName");
+		int projectId=Integer.parseInt(request.getParameter("projectId"));
 		
 	}
 
+}
 }

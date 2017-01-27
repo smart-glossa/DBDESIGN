@@ -73,6 +73,7 @@ public class ProjectServlet extends HttpServlet {
         e.printStackTrace();
     }
     response.getWriter().println(delete);
+    
 
 	}
 }
