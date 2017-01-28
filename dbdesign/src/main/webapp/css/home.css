@@ -27,7 +27,7 @@
     margin-left:15px;
 
 }
-.registertable #add #login
+ #add 
 {
 	background-color: #3498db;
     color: white;
@@ -42,6 +42,7 @@
     white-space: nowrap;
     border-radius: 3px;
 }
+
 #login
 {
 	background-color: #3498db;

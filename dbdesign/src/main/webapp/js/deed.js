@@ -2,14 +2,21 @@ $(document).ready(function(){
 
 $(document).on('click','#submit',function(){
 	
-	var tbles="";
-	tbles += "<div id=\"de\"><table>";
-	tbles += "<tr><td>table name<\/td><td><input type=\"text\" id=\"title\"><\/td><\/tr>";
-	tbles += "<tr><td>table comment<\/td><td><textarea type=\"text\"><\/textarea><\/td><\/tr>";
-	tbles += "<\/table>";
-	tbles += "<button id=\"send\" onClick=\"getwords()\">save<\/button><a href=\"\">cancel<\/a><\/div>";
+	var tnbl="";
+	tnbl += "<table>";
+	tnbl += "	<tr>";
+	tnbl += "		<td>ProjectName<\/td><td><input type=\"text\" id=\"proName\"><\/td>";
+	tnbl += "	<\/tr>";
+	tnbl += "	<tr>";
+	tnbl += "		<td>Description<\/td><td><input type=\"text\" id=\"des\"><\/td>";
+	tnbl += "	<\/tr>";
+	tnbl += "	<tr>";
+	tnbl += "		<td>userName<\/td><td><input type=\"text\" id=\"userName\"><\/td>";
+	tnbl += "	<\/tr>";
+	tnbl += "<\/table>";
+	tnbl += "<button id=\"project\">submit<\/button>";
 
-	$('.add')[0].innerHTML=tbles;
+	$('.add')[0].innerHTML=tnbl;
 	
 	
 });
