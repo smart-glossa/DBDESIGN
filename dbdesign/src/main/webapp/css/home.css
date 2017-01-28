@@ -27,7 +27,22 @@
     margin-left:15px;
 
 }
-.registertable #add
+.registertable #add #login
+{
+	background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 15px 16px;
+    outline: none;
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: none;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+#login
 {
 	background-color: #3498db;
     color: white;

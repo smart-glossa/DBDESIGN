@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#sign").click(function(){
+	$("#add").click(function(){
 		 var Name=$("#Name").val();
 		 var userName=$("#userName").val();
 		 var pass=$("#pass").val();

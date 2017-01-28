@@ -30,29 +30,35 @@ public class UserClass {
 			closeConnection();
 		}
 	}
-	public JSONObject loginUser(String userName, String pass) throws SQLException {
-		JSONObject log = new JSONObject();
+	public JSONObject login(String uname, String pass) throws SQLException {
+		JSONObject obj = new JSONObject();
 		try {
-			String query = "select * from user where userName='" + userName + "'AND pass='" + pass + "'";
-			//stat.execute(query);
-			ResultSet rs = stat.executeQuery(query);
+			String query = "Select * from user where userName='" + uname + "'AND password='" + pass + "'";
+			rs = stat.executeQuery(query);
 			if (rs.next()) {
-				if (userName != "") {
-					log.put("name", rs.getString(1));
-					//log.put("pass", "success");
-				}
-			} else {
-				log.put("status", "error");
-
+				obj.put("user", rs.getString("userName"));
+				obj.put("status", 1);
 			}
-
+			return obj;
 		} finally {
 			closeConnection();
 		}
-		return log;
-
 	}
-	
+
+	public JSONObject getName(String uname) throws SQLException {
+		JSONObject obj = new JSONObject();
+		try {
+			String query = "Select name from user where userName='" + uname + "'";
+			rs = stat.executeQuery(query);
+			if (rs.next()) {
+				obj.put("name", rs.getString("name"));
+				obj.put("status", 1);
+			}
+			return obj;
+		} finally {
+			closeConnection();
+		}
+	}
 
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");

@@ -57,9 +57,7 @@ public class ProtableClass {
 	            res = sta.executeQuery(query);
 	            if (res.next()) {
 	            	 one.put("tableName", res.getString(2));
-	                 one.put("projectId", res.getString(3));
-	                
-	                  
+	                 one.put("projectId", res.getString(3));     
 	            }
 
 	        } finally {

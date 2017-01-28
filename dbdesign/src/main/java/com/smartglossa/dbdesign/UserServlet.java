@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 
 
+
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,20 +43,33 @@ public class UserServlet extends HttpServlet {
 				obj.put("message", e.getMessage());
 			}
 			response.getWriter().println(obj);
-		} else if (operation.equals("logIn")) {
-			JSONObject log = new JSONObject();
-			String userName = request.getParameter("userName");
-			String pass = request.getParameter("pass");
+		}  else if (operation.equals("login")) {
+			JSONObject result = new JSONObject();
+			String uname = request.getParameter("user");
+			String pass = request.getParameter("passw");
 			try {
-				UserClass login = new UserClass();
-				log = login.loginUser(userName, pass);
-				
-
+				UserClass user = new 	UserClass();
+				result = user.login(uname, pass);
+				result.put("status", 1);
+				response.getWriter().print(result);
 			} catch (Exception e) {
-				log.put("status", 0);
+				result.put("status", 0);
+				response.getWriter().print(result);
 				e.printStackTrace();
 			}
-			response.getWriter().print(log);
+		} else if (operation.equals("getName")) {
+			JSONObject result = new JSONObject();
+			String uname = request.getParameter("uname");
+			try {
+				UserClass user = new 	UserClass();
+				result = user.getName(uname);
+				response.getWriter().print(result);
+			} catch (Exception e) {
+				result.put("status", 0);
+				response.getWriter().print(result);
+				e.printStackTrace();
+			}
 		}
-}
+
+	}
 }

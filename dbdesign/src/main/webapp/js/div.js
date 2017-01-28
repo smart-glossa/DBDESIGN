@@ -38,8 +38,8 @@ $(document).ready(function(){
 			alert(result);
 		})
 	}).on('click','#login',function(){
-		var userName = $('#userName').val();
-		var pass = $('#passw').val();
+		var uName = $('#user').val();
+		var passw = $('#passw').val();
 		if(userName===""){
 			$('#user').focus().css('outline-color','red');
 			return false;
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			$('#passw').focus().css('outline-color','red');
 			return false;
 		}
-		var url ="http://localhost:8080/dbdesign/User?operation=logIn&userName="+userName+"&pass="+pass; 
+		var url ="http://localhost:8080/dbdesign/User?operation=logIn&userName="+uName+"&pass="+passw; 
 		$.ajax({
 			url:url,
 			type:'POST'
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		.done(function(result){
 			var res = JSON.parse(result);
 			if(res.status == 1){
-				document.cookie = "userName="+ uname;
+				document.cookie = "userName="+ userName;
 				window.location.href = "index.html";
 			}
 		})
