@@ -64,8 +64,8 @@ $(document).ready(function() {
        							for (var i = 0; i < result.length; i++) {
        								div += "<div>"
        					    		div += "<p>" + result[i].projectId + "</p>"
-       								div += "<p>" + result[i].projectName + "</p>"
-       								div += "<p>" + result[i].description + "</p>"
+       								div += "<p>" + result[i].proName + "</p>"
+       								div += "<p>" + result[i].des + "</p>"
        								div += "</div>"
        							}
        							div += "</div>";

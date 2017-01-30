@@ -2,18 +2,12 @@ package com.smartglossa.dbdesign;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-
-
-
-
-
-
 
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +28,7 @@ public class UserServlet extends HttpServlet {
 			String pass = request.getParameter("pass");
 
 			try {
-			UserClass Add = new UserClass();
+				UserClass Add = new UserClass();
 				Add.userAdd(name, userName, pass);
 				obj.put("status", 1);
 			} catch (Exception e) {
@@ -43,12 +37,12 @@ public class UserServlet extends HttpServlet {
 				obj.put("message", e.getMessage());
 			}
 			response.getWriter().println(obj);
-		}  else if (operation.equals("login")) {
+		} else if (operation.equals("login")) {
 			JSONObject result = new JSONObject();
 			String uname = request.getParameter("user");
 			String pass = request.getParameter("passw");
 			try {
-				UserClass user = new 	UserClass();
+				UserClass user = new UserClass();
 				result = user.login(uname, pass);
 				result.put("status", 1);
 				response.getWriter().print(result);
@@ -61,7 +55,7 @@ public class UserServlet extends HttpServlet {
 			JSONObject result = new JSONObject();
 			String uname = request.getParameter("uname");
 			try {
-				UserClass user = new 	UserClass();
+				UserClass user = new UserClass();
 				result = user.getName(uname);
 				response.getWriter().print(result);
 			} catch (Exception e) {

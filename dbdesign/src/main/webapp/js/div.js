@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	if(getCookie("userName") != undefined){
-		window.location.href = "index.html";
+		window.location.href = "home.html";
 	}
 	$(document).on('click','#add',function(){
 		var Name = $('#Name').val();
@@ -57,7 +57,7 @@ $(document).ready(function(){
 			var res = JSON.parse(result);
 			if(res.status == 1){
 				document.cookie = "userName="+ uName;
-				window.location.href = "index.html";
+				window.location.href = "home.html";
 			}
 		})
 		.fail(function(result){
