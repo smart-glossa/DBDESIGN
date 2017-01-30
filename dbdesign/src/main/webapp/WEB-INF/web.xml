@@ -28,7 +28,7 @@
     	<url-pattern>/User</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>ProjectServlet</servlet-name>
+    	<servlet-name>ProjectServlet</servlet-name> 
     	<url-pattern>/Project</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
