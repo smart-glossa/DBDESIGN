@@ -61,7 +61,19 @@ public class ProjectServlet extends HttpServlet {
         e.printStackTrace();
     }
     response.getWriter().println(one);
-} else if (operation.equals("delete")) {
+}
+else if (operation.equals("getProject")) {
+    String uName = request.getParameter("uName");
+    JSONObject obj = new JSONObject();
+    try {
+        ProjectClass project = new ProjectClass();
+        obj = project. getproject(uName);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    response.getWriter().println(obj);
+}
+else if (operation.equals("delete")) {
     int projectId = Integer.parseInt(request.getParameter("projectId"));
     JSONObject delete = new JSONObject();
     try {

@@ -69,3 +69,18 @@
 	background-color:#000080;
 	color:white;
 }
+.details
+{
+	width:900;
+	margin-left:100px;
+}
+.fulldetail #na
+{
+	background-color:white;
+	color:blue;
+	width:150px;
+	margin-left:35px;
+	padding:5px 10px;
+	
+	
+}

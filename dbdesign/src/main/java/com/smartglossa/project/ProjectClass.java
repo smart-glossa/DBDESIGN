@@ -40,7 +40,7 @@ public class ProjectClass {
                  JSONObject get = new JSONObject();
                  get.put("projectId", res.getInt(1));
                  get.put("proName", res.getString(2));
-                 get.put("description", res.getString(3));
+                 get.put("des", res.getString(3));
                  get.put("userName", res.getString(4));
                 
                  result.put(get);
@@ -57,7 +57,7 @@ public class ProjectClass {
  	            res = sta.executeQuery(query);
  	            if (res.next()) {
  	            	 one.put("proName", res.getString(2));
- 	                 one.put("description", res.getString(3));
+ 	                 one.put("des", res.getString(3));
  	                 one.put("userName", res.getString(4));
  	                  
  	            }
@@ -68,6 +68,21 @@ public class ProjectClass {
  	        return one;
 
  	    }
+ 	 public JSONObject getproject( String uName) throws SQLException {
+ 		JSONObject obj = new JSONObject();
+ 		try {
+ 			String query = "Select * from project where userName='" + uName +"'";
+ 			res = sta.executeQuery(query);
+ 			if (res.next()) {
+ 				obj.put("projectId", res.getInt(1));
+ 				obj.put("proName", res.getString(2));
+ 				obj.put("des", res.getString(3));
+ 			}
+ 			return obj;
+ 		} finally {
+ 			closeConnection();
+ 		}
+ 	}
  	  
  	 public void deleteproject(int projectId) throws SQLException, ClassNotFoundException {
  	       JSONObject delete = new JSONObject();

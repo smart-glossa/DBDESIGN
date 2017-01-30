@@ -48,7 +48,7 @@ public class UserClass {
 	public JSONObject getName(String uname) throws SQLException {
 		JSONObject obj = new JSONObject();
 		try {
-			String query = "Select name from user where userName='" + uname + "'";
+			String query = "Select name from user where userName='" + uname + "''";
 			rs = stat.executeQuery(query);
 			if (rs.next()) {
 				obj.put("name", rs.getString("name"));
