@@ -31,7 +31,7 @@
     	<servlet-name>ProjectServlet</servlet-name> 
     	<url-pattern>/Project</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <servlet-mapping> 
     	<servlet-name>ProtableServlet</servlet-name>
     	<url-pattern>/Protable</url-pattern>
     </servlet-mapping>
