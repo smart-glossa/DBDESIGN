@@ -17,7 +17,7 @@ $(document).ready(function(){
 			$("#pass").focus().css("outline-color","#e53935");
 			return;
 		}
-		  var url="http://localhost:8080/dbdesign/User?operation=userAdd&name="+Name+"&userName="+userName+"&pass="+pass;
+		  var url="/dbdesign/User?operation=userAdd&name="+Name+"&userName="+userName+"&pass="+pass;
 		  
 		  $.ajax({
 				url: url,

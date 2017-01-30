@@ -19,7 +19,7 @@ $(document).ready(function(){
 			$('#pass').focus().css('outline-color','red');
 			return false;
 		}
-   var url="http://localhost:8080/dbdesign/User?operation=userAdd&name="+Name+"&userName="+userName+"&pass="+pass;
+   var url="/dbdesign/User?operation=userAdd&name="+Name+"&userName="+userName+"&pass="+pass;
 		$.ajax({
 			url:url,
 			type:'POST'
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			$('#passw').focus().css('outline-color','red');
 			return false;
 		}
-		var url ="http://localhost:8080/dbdesign/User?operation=logIn&userName="+uName+"&pass="+passw; 
+		var url ="/dbdesign/User?operation=logIn&userName="+uName+"&pass="+passw; 
 		$.ajax({
 			url:url,
 			type:'POST'

@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-
 
 public class UserClass {
 
@@ -30,6 +28,7 @@ public class UserClass {
 			closeConnection();
 		}
 	}
+
 	public JSONObject login(String uname, String pass) throws SQLException {
 		JSONObject obj = new JSONObject();
 		try {
@@ -62,7 +61,8 @@ public class UserClass {
 
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
+		conn = DriverManager.getConnection(
+				"jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
 				UserConstrant.USERNAME, UserConstrant.PASSWORD);
 		stat = conn.createStatement();
 
@@ -81,6 +81,4 @@ public class UserClass {
 		}
 	}
 
-	
-	
 }

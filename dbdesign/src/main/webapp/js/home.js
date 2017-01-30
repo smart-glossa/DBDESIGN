@@ -1,6 +1,6 @@
 function getAll()
 {
-	var url = "http://localhost:8080/dbdesign/Project?operation=getall"
+	var url = "/dbdesign/Project?operation=getall"
 	$.ajax({
 		url : url,
 		type : 'POST'

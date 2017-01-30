@@ -17,87 +17,90 @@ public class ProjectClass {
 	Statement sta = null;
 	ResultSet res = null;
 
+	public ProjectClass() throws Exception {
+		openConnection();
 
-     public ProjectClass()throws Exception {
-	openConnection();
-
-}
- 	public void proAdd(String proName, String description,String userName) throws SQLException {
- try{
- 		String qry="insert into project(projectName, description,userName) values('" + proName + "','" + description + "','" + userName
-					+ "')";
-			sta.execute(qry);
- 	} finally {
-		closeConnection();
 	}
- 	}
- 	 public JSONArray getall() throws SQLException, ClassNotFoundException {
-         JSONArray result = new JSONArray();
-         try {
-             String query = "select * from project";
-             res = sta.executeQuery(query);
-             while (res.next()) {
-                 JSONObject get = new JSONObject();
-                 get.put("projectId", res.getInt(1));
-                 get.put("proName", res.getString(2));
-                 get.put("des", res.getString(3));
-                 get.put("userName", res.getString(4));
-                
-                 result.put(get);
-             }
-             return result;
-         } finally {
-             closeConnection();
-         }
-     }
- 	  public JSONObject getone(int projectId) throws SQLException, ClassNotFoundException {
- 	        JSONObject one = new JSONObject();
- 	        try {
- 	            String query = "select * from project where projectId="+projectId;
- 	            res = sta.executeQuery(query);
- 	            if (res.next()) {
- 	            	 one.put("proName", res.getString(2));
- 	                 one.put("des", res.getString(3));
- 	                 one.put("userName", res.getString(4));
- 	                  
- 	            }
 
- 	        } finally {
- 	            closeConnection();
- 	        }
- 	        return one;
+	public void proAdd(String proName, String description, String userName) throws SQLException {
+		try {
+			String qry = "insert into project(projectName, description,userName) values('" + proName + "','"
+					+ description + "','" + userName + "')";
+			sta.execute(qry);
+		} finally {
+			closeConnection();
+		}
+	}
 
- 	    }
- 	 public JSONObject getproject( String uName) throws SQLException {
- 		JSONObject obj = new JSONObject();
- 		try {
- 			String query = "Select * from project where userName='" + uName +"'";
- 			res = sta.executeQuery(query);
- 			if (res.next()) {
- 				obj.put("projectId", res.getInt(1));
- 				obj.put("proName", res.getString(2));
- 				obj.put("des", res.getString(3));
- 			}
- 			return obj;
- 		} finally {
- 			closeConnection();
- 		}
- 	}
- 	  
- 	 public void deleteproject(int projectId) throws SQLException, ClassNotFoundException {
- 	       JSONObject delete = new JSONObject();
- 	        try {
- 	            String query = "delete from project where projectId="+projectId;
- 	            sta.execute(query);
- 	        } finally {
- 	            closeConnection();
- 	        }
- 	    }  
+	public JSONArray getall() throws SQLException, ClassNotFoundException {
+		JSONArray result = new JSONArray();
+		try {
+			String query = "select * from project";
+			res = sta.executeQuery(query);
+			while (res.next()) {
+				JSONObject get = new JSONObject();
+				get.put("projectId", res.getInt("projectId"));
+				get.put("proName", res.getString("projectName"));
+				get.put("des", res.getString("description"));
+				get.put("userName", res.getString("userName"));
 
+				result.put(get);
+			}
+			return result;
+		} finally {
+			closeConnection();
+		}
+	}
 
- 	private void openConnection() throws SQLException, ClassNotFoundException {
+	public JSONObject getone(int projectId) throws SQLException, ClassNotFoundException {
+		JSONObject one = new JSONObject();
+		try {
+			String query = "select * from project where projectId=" + projectId;
+			res = sta.executeQuery(query);
+			if (res.next()) {
+				one.put("proName", res.getString(2));
+				one.put("des", res.getString(3));
+				one.put("userName", res.getString(4));
+
+			}
+
+		} finally {
+			closeConnection();
+		}
+		return one;
+
+	}
+
+	public JSONObject getproject(String uName) throws SQLException {
+		JSONObject obj = new JSONObject();
+		try {
+			String query = "Select * from project where userName='" + uName + "'";
+			res = sta.executeQuery(query);
+			if (res.next()) {
+				obj.put("projectId", res.getInt("projectId"));
+				obj.put("proName", res.getString("projectName"));
+				obj.put("des", res.getString("description"));
+			}
+			return obj;
+		} finally {
+			closeConnection();
+		}
+	}
+
+	public void deleteproject(int projectId) throws SQLException, ClassNotFoundException {
+		JSONObject delete = new JSONObject();
+		try {
+			String query = "delete from project where projectId=" + projectId;
+			sta.execute(query);
+		} finally {
+			closeConnection();
+		}
+	}
+
+	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
+		con = DriverManager.getConnection(
+				"jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
 				UserConstrant.USERNAME, UserConstrant.PASSWORD);
 		sta = con.createStatement();
 
@@ -116,4 +119,4 @@ public class ProjectClass {
 		}
 	}
 
- 	}
+}

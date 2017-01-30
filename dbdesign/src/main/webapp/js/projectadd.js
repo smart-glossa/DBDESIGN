@@ -18,7 +18,7 @@ $(document).ready(function() {
             return;
         }
        
-        var url ="http://localhost:8080/dbdesign/Project?operation=addProject&proName="+proName+"&description="+des+"&userName="+uName;
+        var url ="/dbdesign/Project?operation=addProject&proName="+proName+"&description="+des+"&userName="+uName;
         $("input[type=text]").val("");
         $.ajax({
                 url: url,
@@ -35,7 +35,7 @@ $(document).ready(function() {
              $(document).on('keyup', '#projectId', function() {
             var projectId = $("#projectId").val();
             if (projectId != "") {
-                var url ="http://localhost:8080/dbdesign/Project?operation=getone&projectId="+projectId; 
+                var url ="/dbdesign/Project?operation=getone&projectId="+projectId; 
                 $.ajax({
                         url: url,
                         type: 'POST'
@@ -49,6 +49,30 @@ $(document).ready(function() {
                     });
             }
         });
+             $(document).on("keyup","#user",function() {
+           	  var user = $("#user").val();
+       			if (user !== "") {
+       				var url = "/dbdesign/Project?operation=getProject&userName="+ user;
+       				$.ajax({
+       					url : url,
+       					type : 'POST'
+       				})
+       				.done(
+       						function(result) {
+       							var result = JSON.parse(result);
+       							var div = "<div >"
+       							for (var i = 0; i < result.length; i++) {
+       								div += "<div>"
+       					    		div += "<p>" + result[i].projectId + "</p>"
+       								div += "<p>" + result[i].projectName + "</p>"
+       								div += "<p>" + result[i].description + "</p>"
+       								div += "</div>"
+       							}
+       							div += "</div>";
+       							$(".user")[0].innerHTML = div;
+       						})
+       			}
        
     });
+});
        
