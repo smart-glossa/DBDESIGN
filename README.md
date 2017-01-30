@@ -9,36 +9,57 @@ As of now, we starts referring the following websites
 </p>
 <p>
 1. User:<br>
-   name varchar(100),
-   userName varchar(100) primarykey,
-   password varchar(100).
-   
+  CREATE TABLE `user` (
+  `name` varchar(100) default NULL,
+  `userName` varchar(100) NOT NULL,
+  `pass` varchar(100) default NULL,
+  PRIMARY KEY  (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
 </p>
 <p>
 2. Project:<br>
-   projectId int autonumber primarykey,
-   projectName varchar(25),
-   description varchar(250),
-   userName varchar(100) foreign key.
+   CREATE TABLE `project` (
+  `projectId` int(11) NOT NULL auto_increment,
+  `projectName` varchar(250) default NULL,
+  `description` varchar(250) default NULL,
+  `userName` varchar(100) default NULL,
+  PRIMARY KEY  (`projectId`),
+  KEY `userName` (`userName`),
+  CONSTRAINT `project_ibfk_1` FOREIGN KEY (`userName`) REFERENCES `user` (`userName`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
 </p>
 <p>
 3. Tables: <br>
-   tableId int autonumber primarykey,
-   tableName varchar(50),
-   projectId foreign key.
+  CREATE TABLE `protable` (
+  `tableId` int(11) NOT NULL auto_increment,
+  `tableName` varchar(50) default NULL,
+  `projectId` int(11) default NULL,
+  PRIMARY KEY  (`tableId`),
+  KEY `projectId` (`projectId`),
+  CONSTRAINT `protable_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `project` (`projectId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1
+
+
 </p>
 <p>
 4. Columns: <br>
-   columnId int autonumber primarykey,
-   tableId int foreign key,
-   coulmnName varchar(50),
-   dataType varchar(50),
-   default varchar(50),
-   isPrimaryKey boolean,
-   allowNull boolean,
-   isUnique boolean,
-   isAutoIncrement boolean,
-   isForeignKey boolean.
+  CREATE TABLE `procolumn` (
+  `columnId` int(11) NOT NULL auto_increment,
+  `tableId` int(11) default NULL,
+  `coulmnName` varchar(50) default NULL,
+  `dataType` varchar(50) default NULL,
+  `defaults` varchar(50) default NULL,
+  `isPrimaryKey` tinyint(1) default NULL,
+  `allowNull` tinyint(1) default NULL,
+  `isUnique` tinyint(1) default NULL,
+  `isAutoIncrement` tinyint(1) default NULL,
+  `isForeignKey` tinyint(1) default NULL,
+  PRIMARY KEY  (`columnId`),
+  KEY `tableId` (`tableId`),
+  CONSTRAINT `procolumn_ibfk_1` FOREIGN KEY (`tableId`) REFERENCES `protable` (`tableId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 </p>
 
 <p>
