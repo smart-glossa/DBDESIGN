@@ -40,11 +40,11 @@ $(document).ready(function(){
 	}).on('click','#login',function(){
 		var uName = $('#user').val();
 		var passw = $('#passw').val();
-		if(userName===""){
+		if(uName===""){
 			$('#user').focus().css('outline-color','red');
 			return false;
 		}
-		if(pass===""){
+		if(passw===""){
 			$('#passw').focus().css('outline-color','red');
 			return false;
 		}
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		.done(function(result){
 			var res = JSON.parse(result);
 			if(res.status == 1){
-				document.cookie = "userName="+ userName;
+				document.cookie = "userName="+ uName;
 				window.location.href = "index.html";
 			}
 		})
