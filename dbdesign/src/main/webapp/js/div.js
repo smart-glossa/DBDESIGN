@@ -48,7 +48,7 @@ $(document).ready(function(){
 			$('#passw').focus().css('outline-color','red');
 			return false;
 		}
-		var url ="/dbdesign/User?operation=logIn&userName="+uName+"&pass="+passw; 
+		var url ="/dbdesign/User?operation=login&userName="+uName+"&pass="+passw; 
 		$.ajax({
 			url:url,
 			type:'POST'
