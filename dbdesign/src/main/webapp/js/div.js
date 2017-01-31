@@ -7,8 +7,8 @@ $(document).ready(function(){
 		var userName = $('#userName').val();
 		var pass = $('#pass').val();
 	
-		if(name===""){
-			$('#name').focus().css('outline-color','red');
+		if(Name===""){
+			$('#Name').focus().css('outline-color','red');
 			return false;
 		}
 		if(userName===""){
