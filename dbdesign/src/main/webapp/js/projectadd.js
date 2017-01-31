@@ -52,7 +52,7 @@ $(document).ready(function() {
              $(document).on("keyup","#user",function() {
            	  var user = $("#user").val();
        			if (user !== "") {
-       				var url = "/dbdesign/Project?operation=getProject&userName="+ user;
+       				var url = "/dbdesign/Project?operation=getProject&uName="+ user;
        				$.ajax({
        					url : url,
        					type : 'POST'
@@ -62,8 +62,8 @@ $(document).ready(function() {
        							var result = JSON.parse(result);
        							var div = "<div >"
        							for (var i = 0; i < result.length; i++) {
-       								div += "<div>"
-       					    		div += "<p>" + result[i].projectId + "</p>"
+       								div += "<div class='fulldetail'>"
+       						        div += "<p p id='na'>" + result[i].projectId + "</p>"
        								div += "<p>" + result[i].proName + "</p>"
        								div += "<p>" + result[i].des + "</p>"
        								div += "</div>"
