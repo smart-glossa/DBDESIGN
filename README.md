@@ -7,31 +7,19 @@ As of now, we starts referring the following websites
 <p>
 <b>Model</b>
 </p>
-<p>
-1. User:<br>
-  CREATE TABLE `user` (
-  `name` varchar(100) default NULL,
-  `userName` varchar(100) NOT NULL,
-  `pass` varchar(100) default NULL,
-  PRIMARY KEY  (`userName`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
-</p>
 <p>
-2. Project:<br>
+1. Project:<br>
    CREATE TABLE `project` (
   `projectId` int(11) NOT NULL auto_increment,
   `projectName` varchar(250) default NULL,
   `description` varchar(250) default NULL,
-  `userName` varchar(100) default NULL,
   PRIMARY KEY  (`projectId`),
-  KEY `userName` (`userName`),
-  CONSTRAINT `project_ibfk_1` FOREIGN KEY (`userName`) REFERENCES `user` (`userName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
 
 </p>
 <p>
-3. Tables: <br>
+2. Tables: <br>
   CREATE TABLE `protable` (
   `tableId` int(11) NOT NULL auto_increment,
   `tableName` varchar(50) default NULL,
@@ -44,7 +32,7 @@ As of now, we starts referring the following websites
 
 </p>
 <p>
-4. Columns: <br>
+3. Columns: <br>
   CREATE TABLE `procolumn` (
   `columnId` int(11) NOT NULL auto_increment,
   `tableId` int(11) default NULL,
@@ -65,18 +53,10 @@ As of now, we starts referring the following websites
 <p>
 <b>View</b>
 <p>
-1. SignUp and SignIn page
-2. HomePage -> Should display the list pf his/her projects
-3. Project Add Form -> He can able to add project Name and their respective tables and columns
-4. Project View page -> Should display all the tables and their respective columns in a respective rectangular box
+1. Project Add Form -> He can able to add project Name and their respective tables and columns
+2. Project View page -> Should display all the tables and their respective columns in a respective rectangular box
 </p>
 
 <p>
 <b> Controller </b>
-</p>
-<p>
-1. Have to add all the MySQL Queries used in this project.
-   (I)user Add:
- insert into user(name,userName,pass);
-
 </p>
