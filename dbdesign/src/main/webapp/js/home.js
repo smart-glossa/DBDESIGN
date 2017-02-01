@@ -7,7 +7,7 @@ function getAll()
 	}).done(function(result) {
 		var result = JSON.parse(result);
 		var table = '<table border= 2px>'
-		    table += '<tr><th>ProjectId</th><th>ProjectName</th><th>Description</th></tr>';
+		     table += '<tr><th>ProjectId</th><th>ProjectName</th><th>Description</th></tr>';
 		for (var i = 0; i < result.length; i++) {
 		  table += '<tr class="fulldetail">'
 		  table += '<td>' + result[i].projectId + '</td>';
