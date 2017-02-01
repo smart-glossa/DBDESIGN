@@ -10,11 +10,9 @@ $(document).on('click','#submit',function(){
 	tnbl += "	<tr>";
 	tnbl += "		<td>Description<\/td><td><input type=\"text\" id=\"des\"><\/td>";
 	tnbl += "	<\/tr>";
-	tnbl += "	<tr>";
-	tnbl += "		<td>userName<\/td><td><input type=\"text\" id=\"userName\"><\/td>";
-	tnbl += "	<\/tr>";
 	tnbl += "<\/table>";
-	tnbl += "<button id=\"project\">submit<\/button>";
+	tnbl += "<button id=\"project\" onClick=\"my()\">submit<\/button>";
+	tnbl += "<div class =\"pro\"></div>"
 
 	$('.add')[0].innerHTML=tnbl;
 	
@@ -40,7 +38,7 @@ $(document).on('click','#done',function(){
 	form+="<input type=\"checkbox\" class=\"key2\" value=\"unique\">unique<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key3\" value=\"Auto Increment\">Auto increment<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key4\" value=\"foerign key\">foerign key<\/input><br>";
-	form += "<input type=\"submit\" id=\"save\"  value=\"save\" onClick=\"my()\"><\/input><br>";
+	form += "<input type=\"submit\" id=\"save\"  value=\"save\" ><\/input><br>";
 	form+="<p id=\"demo\"><\/p>";
 	form += "";
 	$('#get')[0].innerHTML=form;

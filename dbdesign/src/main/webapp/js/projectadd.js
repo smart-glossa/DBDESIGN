@@ -13,12 +13,7 @@ $(document).ready(function() {
             $('#des').css("border-color", "red");
             return;
         }
-        if (uName == "") {
-            $('#userName').css("border-color", "red");
-            return;
-        }
-       
-        var url ="/dbdesign/Project?operation=addProject&proName="+proName+"&description="+des+"&userName="+uName;
+        var url ="/dbdesign/Project?operation=addProject&proName="+proName+"&description="+des;
         $("input[type=text]").val("");
         $.ajax({
                 url: url,
@@ -35,7 +30,7 @@ $(document).ready(function() {
              $(document).on('keyup', '#projectId', function() {
             var projectId = $("#projectId").val();
             if (projectId != "") {
-                var url ="/dbdesign/Project?operation=getone&projectId="+projectId; 
+                var url ="/dbdesign/Project?operation=getOne&projectId="+projectId; 
                 $.ajax({
                         url: url,
                         type: 'POST'
@@ -44,13 +39,10 @@ $(document).ready(function() {
                         result = JSON.parse(result);
                         $("#projectName").val(result.proName);
                         $("#des").val(result.des);
-                        $("#userName").val(result.userName);
-                       
                     });
             }else{
           		$('#projectName').val("");
           		$('#des').val("");
-          		$('#userName').val("");
           	}
         });
              $(document).on("keyup","#user",function() {

@@ -27,22 +27,20 @@ public class ProjectServlet extends HttpServlet {
 			JSONObject obj = new JSONObject();
 			 String proName = request.getParameter("proName");
 			String description= request.getParameter("description");
-			String userName =request.getParameter("userName");
-			
 			try {
 				ProjectClass Project = new ProjectClass();
-				Project.proAdd(proName,description,userName);
+				Project.proAdd(proName, description);
 				obj.put("status", 1);
 			} catch (Exception e) {
 				obj.put("status",0);
 				e.printStackTrace();
 			}
 		response.getWriter().println(obj);	
-	}else if (operation.equals("getall")) {
+	}else if (operation.equals("getAll")) {
         JSONArray result = new JSONArray();
         try {
             ProjectClass get = new ProjectClass();
-            result = get.getall();
+            result = get.getAll();
         } catch (Exception e) {
             JSONObject get = new JSONObject();
             get.put("status", 0);
@@ -51,12 +49,12 @@ public class ProjectServlet extends HttpServlet {
         }
         response.getWriter().println(result);
 
-}else if (operation.equals("getone")) {
+}else if (operation.equals("getOne")) {
     int projectId = Integer.parseInt(request.getParameter("projectId"));
     JSONObject one = new JSONObject();
     try {
         ProjectClass get = new ProjectClass();
-        one = get.getone(projectId);
+        one = get.getOne(projectId);
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -78,7 +76,7 @@ else if (operation.equals("delete")) {
     JSONObject delete = new JSONObject();
     try {
     	 ProjectClass get = new ProjectClass();
-        get.deleteproject(projectId);
+        get.delete(projectId);
         delete.put("status",1);      
     } catch (Exception e) {
         delete.put("status",0);

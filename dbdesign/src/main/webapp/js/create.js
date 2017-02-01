@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(document).on('click','#project',function(){
     	$('.add').hide();
     })
-    
      $(document).on('click','#done',function(){
        $('.done').show();
     });

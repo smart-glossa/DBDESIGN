@@ -22,17 +22,17 @@ public class ProjectClass {
 
 	}
 
-	public void proAdd(String proName, String description, String userName) throws SQLException {
+	public void proAdd(String proName, String description) throws SQLException {
 		try {
-			String qry = "insert into project(projectName, description,userName) values('" + proName + "','"
-					+ description + "','" + userName + "')";
+			String qry = "insert into project(projectName, description) values('" + proName + "','"
+					+ description + "')";
 			sta.execute(qry);
 		} finally {
 			closeConnection();
 		}
 	}
 
-	public JSONArray getall() throws SQLException, ClassNotFoundException {
+	public JSONArray getAll() throws SQLException, ClassNotFoundException {
 		JSONArray result = new JSONArray();
 		try {
 			String query = "select * from project";
@@ -42,8 +42,6 @@ public class ProjectClass {
 				get.put("projectId", res.getInt("projectId"));
 				get.put("proName", res.getString("projectName"));
 				get.put("des", res.getString("description"));
-				get.put("userName", res.getString("userName"));
-
 				result.put(get);
 			}
 			return result;
@@ -52,16 +50,14 @@ public class ProjectClass {
 		}
 	}
 
-	public JSONObject getone(int projectId) throws SQLException, ClassNotFoundException {
+	public JSONObject getOne(int projectId) throws SQLException, ClassNotFoundException {
 		JSONObject one = new JSONObject();
 		try {
 			String query = "select * from project where projectId=" + projectId;
 			res = sta.executeQuery(query);
 			if (res.next()) {
-				one.put("proName", res.getString(2));
-				one.put("des", res.getString(3));
-				one.put("userName", res.getString(4));
-
+				one.put("proName", res.getString(1));
+				one.put("des", res.getString(2));
 			}
 
 		} finally {
@@ -87,8 +83,8 @@ public class ProjectClass {
 		}
 	}
 
-	public void deleteproject(int projectId) throws SQLException, ClassNotFoundException {
-		JSONObject delete = new JSONObject();
+	public void delete(int projectId) throws SQLException, ClassNotFoundException {
+		JSONObject obj= new JSONObject();
 		try {
 			String query = "delete from project where projectId=" + projectId;
 			sta.execute(query);

@@ -15,17 +15,13 @@ function my(){
 	model += "	<tr><th>ProjectId<\/th>";
 	model += "	<th>ProjectName<\/th>";
 	model += "	<th>Description<\/th>";
-	model += "	<th>UserName<\/th>";
 	model += "	<\/tr>";
 	model += "	<tr>";
 	model += "		<td><input type=\"text\" name=\"\"  id=\"projectId\"><\/td>";
-	model += "		<td><input type=\"text\" name=\"\"  id=\"projectName\" readonly=\"true\"><\/td>";
-	model += "		<td><input type=\"text\" name=\"\"  id=\"des\" readonly=\"true\"><\/td>";
-	model += "		<td><input type=\"text\" name=\"\"  id=\"userName\" readonly=\"true\"><\/td>";
+	model += "		<td><input type=\"text\" name=\"\"  id=\"projectName\"><\/td>";
+	model += "		<td><input type=\"text\" name=\"\"  id=\"des\"><\/td>";
 	model += "	<\/tr>";
 	model += "<\/table>";
-
-
-	 $('#get')[0].innerHTML=model;
+	 $('#pro')[0].innerHTML=model;
  }
  

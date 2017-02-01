@@ -1,22 +1,20 @@
 function getAll()
 {
-	var url = "/dbdesign/Project?operation=getall"
+	var url = "/dbdesign/Project?operation=getAll"
 	$.ajax({
 		url : url,
 		type : 'POST'
 	}).done(function(result) {
 		var result = JSON.parse(result);
-		var div = "<div >"
+		var table = '<table border= 2px>'
+		    table += '<tr><th>ProjectId</th><th>ProjectName</th><th>Description</th></tr>';
 		for (var i = 0; i < result.length; i++) {
-			div += "<div class='fulldetail'>"
-    		div += "<p id='na'>" + result[i].projectId + "</p>"
-			div += "<p>" + result[i].proName + "</p>"
-			div += "<p>" + result[i].des + "</p>"
-			div += "<p>" + result[i].userName + "</p>"
-			div += "</div>"
-
+		  table += '<tr class="fulldetail">'
+		  table += '<td>' + result[i].projectId + '</td>';
+		  table += '<td>' + result[i].proName + '</td>';
+		  table += '<td>' + result[i].des + '</td>';
 		}
-		div += "</div>";
-		$(".details")[0].innerHTML = div;
+		table += "</table>";
+		$(".details")[0].innerHTML = table;
 	});
-}
+} 

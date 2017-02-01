@@ -22,6 +22,20 @@
     	<servlet-name>ProtableServlet</servlet-name>
     	<servlet-class>com.smartglossa.protable.ProtableServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProcolumnClass</display-name>
+    	<servlet-name>ProcolumnClass</servlet-name>
+    	<servlet-class>com.smartglossa.procolumns.ProcolumnClass</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProcolumnServlet</display-name>
+    	<servlet-name>ProcolumnServlet</servlet-name>
+    	<servlet-class>com.smartglossa.procolumns.ProcolumnServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
     	<servlet-name>UserServlet</servlet-name>
@@ -34,6 +48,14 @@
     <servlet-mapping> 
     	<servlet-name>ProtableServlet</servlet-name>
     	<url-pattern>/Protable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProcolumnClass</servlet-name>
+    	<url-pattern>/ProcolumnClass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProcolumnServlet</servlet-name>
+    	<url-pattern>/ProcolumnServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
