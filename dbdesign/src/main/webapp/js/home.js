@@ -15,6 +15,6 @@ function getAll()
 		  table += '<td>' + result[i].des + '</td>';
 		}
 		table += "</table>";
-		$(".details")[0].innerHTML = table;
+		$(".details")[0].innerHTML = table;  
 	});
 } 
