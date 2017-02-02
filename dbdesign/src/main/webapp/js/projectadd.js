@@ -30,7 +30,7 @@ $(document).ready(function() {
              $(document).on('keyup', '#projectId', function() {
             var projectId = $("#projectId").val();
             if (projectId != "") {
-                var url ="/dbdesign/Project?operation=getOne&projectId="+projectId; 
+                var url ="/dbdesign/Project?operation=getOne&projectId="+projectId+""; 
                 $.ajax({
                         url: url,
                         type: 'POST'
@@ -38,7 +38,7 @@ $(document).ready(function() {
                     .done(function(result) {
                         result = JSON.parse(result);
                         $("#projectName").val(result.proName);
-                        $("#des").val(result.des);
+                        $("#description").val(result.des);
                     });
             }else{
           		$('#projectName').val("");

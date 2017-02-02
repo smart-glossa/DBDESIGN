@@ -19,7 +19,7 @@ function my(){
 	model += "	<tr>";
 	model += "		<td><input type=\"text\" name=\"\"  id=\"projectId\"><\/td>";
 	model += "		<td><input type=\"text\" name=\"\"  id=\"projectName\"><\/td>";
-	model += "		<td><input type=\"text\" name=\"\"  id=\"des\"><\/td>";  
+	model += "		<td><input type=\"text\" name=\"\"  id=\"description\"><\/td>";  
 	model += "	<\/tr>";
 	model += "<\/table>";
 	 $('#pro')[0].innerHTML=model;

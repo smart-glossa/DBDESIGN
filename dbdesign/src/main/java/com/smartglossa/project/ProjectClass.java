@@ -50,49 +50,7 @@ public class ProjectClass {
 		}
 	}
 
-	public JSONObject getOne(int projectId) throws SQLException, ClassNotFoundException {
-		JSONObject one = new JSONObject();
-		try {
-			String query = "select * from project where projectId=" + projectId;
-			res = sta.executeQuery(query);
-			if (res.next()) {
-				one.put("proName", res.getString(1));
-				one.put("des", res.getString(2));
-			}
-
-		} finally {
-			closeConnection();
-		}
-		return one;
-
-	}
-
-	public JSONObject getproject(String uName) throws SQLException {
-		JSONObject obj = new JSONObject();
-		try {
-			String query = "Select * from project where userName='" + uName + "'";
-			res = sta.executeQuery(query);
-			if (res.next()) {
-				obj.put("projectId", res.getInt("projectId"));
-				obj.put("proName", res.getString("projectName"));
-				obj.put("des", res.getString("description"));
-			}
-			return obj;
-		} finally {
-			closeConnection();
-		}
-	}
-
-	public void delete(int projectId) throws SQLException, ClassNotFoundException {
-		JSONObject obj= new JSONObject();
-		try {
-			String query = "delete from project where projectId=" + projectId;
-			sta.execute(query);
-		} finally {
-			closeConnection();
-		}
-	}
-
+	
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		con = DriverManager.getConnection(

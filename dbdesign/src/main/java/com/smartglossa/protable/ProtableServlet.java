@@ -50,16 +50,6 @@ public class ProtableServlet extends HttpServlet {
         }
         response.getWriter().println(result);
 
-}else if (operation.equals("getOne")) {
-    int tableId = Integer.parseInt(request.getParameter("tableId"));
-    JSONObject one = new JSONObject();
-    try {
-    	ProtableClass get = new ProtableClass();
-        one = get.getone(tableId);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    response.getWriter().println(one);
 }
 	}
 }

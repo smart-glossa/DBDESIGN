@@ -31,7 +31,7 @@ $(document).on('click','#done',function(){
 	form += "<td>size<\/td>";
 	form += "<td><input type=\"text\" class=\"Size\"><\/input><\/td><\/tr><tr>";
 	form += "<td>default<\/td>";
-	form += "<td><input type=\"text\" class=\"Dfult\"><\/input><\/td><\/tr>";
+	form += "<td><input type=\"text\" class=\"Default\"><\/input><\/td><\/tr>";
 	form += "<\/table>";
 	form+="<input type=\"checkbox\" class=\"key\" value=\"primary key\">primary key<\/input><br>";
 	form+="<input type=\"checkbox\" class=\"key1\" value=\"Allow nulls\">Allow nulls<\/input><br>";

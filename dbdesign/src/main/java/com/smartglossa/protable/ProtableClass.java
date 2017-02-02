@@ -50,22 +50,6 @@ public class ProtableClass {
             closeConnection();
         }
     }
- 	public JSONObject getone(int tableId) throws SQLException, ClassNotFoundException {
-	        JSONObject one = new JSONObject();
-	        try {
-	            String query = "select * from protable where tableId="+tableId;
-	            res = sta.executeQuery(query);
-	            if (res.next()) {
-	            	 one.put("tableName", res.getString(2));
-	                 one.put("projectId", res.getString(3));     
-	            }
-
-	        } finally {
-	            closeConnection();
-	        }
-	        return one;
-
-	    }
 	  
  	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
