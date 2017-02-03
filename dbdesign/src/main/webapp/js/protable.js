@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	getAll();
     $(document).on('click', '#save', function() {
-    	var tableId=
+    
         var Name= $(".Name").val();
         var type= $(".Type").val();
         var size= $(".Size").val();

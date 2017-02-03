@@ -45,7 +45,7 @@ $(document).ready(function() {
           		$('#des').val("");
           	}
         });
-             $(document).on("keyup","#user",function() {
+           /*  $(document).on("keyup","#user",function() {
            	  //var user = getCookie('userName');
            	 var user = $("#user").val();
        			if (user !== "") {
@@ -70,6 +70,6 @@ $(document).ready(function() {
        					})
       			}
        
-    });
+    });*/
 });
        

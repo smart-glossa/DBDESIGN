@@ -1,6 +1,6 @@
 function getAll()
 {
-	var url = "/dbdesign/Project?operation=getAll"
+	var url = "/dbdesign/Project?operation=getAll";
 	$.ajax({
 		url : url,
 		type : 'POST'
@@ -8,10 +8,10 @@ function getAll()
 		var result = JSON.parse(result);
 		var div = '<div id="fulldetail">';
 		for (var i = 0; i < result.length; i++) {
-		  div += '<b id="projectId" class="db">'+ result[i].projectId +'</b>';
-         div += '<b id="proName" class="db">'+result[i].proName+'</b>';		
+			  div += "<p>" + result[i].projectId + "</p>";
+		div += "<p>" + result[i].proName + "</p>";		
 		}
-		 div = '</div>';
-		$(".details")[0].innerHTML = div;  
+		 div='</div>';
+		$(".detail")[0].innerHTML = div;  
 	});
 } 
