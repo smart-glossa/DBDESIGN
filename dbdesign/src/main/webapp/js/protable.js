@@ -1,28 +1,49 @@
 $(document).ready(function() {
 	getAll();
     $(document).on('click', '#save', function() {
-    
-        var Name= $(".Name").val();
-        var type= $(".Type").val();
-        var size= $(".Size").val();
-        var def =$(".default").val();
-        var primarykey =$(".key1").val();
-        var allownull =$(".key2").val();
-        var unique =$(".key3").val();
-        var autoIncrement= $(".key4").val();
-        var foreignKey = $(".key5").val();      
-        var url ="/dbdesign/Project?operation=addProject&proName="+proName+"&description="+des;
-        $("input[type=text]").val("");
+        var tablename = $('#tableName').val();
+    	var projectid = $('#projectId').val();   
+    	  if (tablename== "") {
+              $('#tableName').css("border-color", "red");
+              return;
+          }
+          if (projectid== "") {
+              $('#projectId').css("border-color", "red");
+              return;
+          }
+        var url ="http://localhost:8080/dbdesign/Protable?operation=addTable&tableName="+ tablename +"&projectId="+ projectid;
         $.ajax({
-                url: url,
-                type: 'POST'
-            }).done(function(result) {
-            	getAll();
-                alert(result);
-            })
-            .fail(function(result) {
-                alert(result);
-            });
-
+            url: url,
+            type: 'POST'
+        }).done(function(result) {
+        	getAll();
+            //alert("added successfully");
+        })
+        .fail(function(result) {
+            alert(result);
+        });
     });
 });
+function getAll()
+{
+	var url = "/dbdesign/Protable?operation=getAll";
+	$.ajax({
+		url : url,
+		type : 'POST'
+	}).done(function(result) {
+		var res=JSON.parse(result);
+		var div = "<div class='tabledetail'>"
+		for (var i = 0; i < res.length; i++) {
+    		//div += "<p>" + res[i].projectId + "</p>"
+			div += "<p class='sd'>" + res[i].tableName + "</p>"
+
+		}
+		div += "</div>";
+		$(".tabdetail")[0].innerHTML = div;
+	});
+}
+
+
+    
+    
+       

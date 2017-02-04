@@ -5,13 +5,14 @@ function getAll()
 		url : url,
 		type : 'POST'
 	}).done(function(result) {
-		var result = JSON.parse(result);
-		var div = '<div id="fulldetail">';
-		for (var i = 0; i < result.length; i++) {
-			  div += "<p>" + result[i].projectId + "</p>";
-		div += "<p>" + result[i].proName + "</p>";		
+		var res=JSON.parse(result);
+		var div = "<div class='fulldetail'>"
+		for (var i = 0; i < res.length; i++) {
+    		//div += "<p>" + res[i].projectId + "</p>"
+			div += "<p class='sds'>" + res[i].proName + "</p>"
+
 		}
-		 div='</div>';
-		$(".detail")[0].innerHTML = div;  
+		div += "</div>";
+		$(".details")[0].innerHTML = div;
 	});
-} 
+}

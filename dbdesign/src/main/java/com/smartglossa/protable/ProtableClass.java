@@ -41,8 +41,6 @@ public class ProtableClass {
                 get.put("tableId", res.getInt(1));
                 get.put("tableName", res.getString(2));
                 get.put("projectId", res.getInt(3));
-               
-               
                 result.put(get);
             }
             return result;

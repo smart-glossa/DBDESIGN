@@ -73,6 +73,12 @@
 {
 	width:900;
 	margin-left:100px;
+	float:left;
+}
+#click{
+    margin-left:600px;
+	position:absolute;
+	
 }
 .fulldetail #na
 {
@@ -82,5 +88,8 @@
 	margin-left:35px;
 	padding:5px 10px;
 	
-	
+		
+}
+.sds{
+	font-style:italic;
 }

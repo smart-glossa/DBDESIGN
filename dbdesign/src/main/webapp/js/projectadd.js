@@ -3,8 +3,6 @@ $(document).ready(function() {
     $(document).on('click', '#project', function() {
         var proName= $("#proName").val();
         var des = $("#des").val();
-        var uName= $("#userName").val();
-       
         if (proName == "") {
             $('#proName').css("border-color", "red");
             return;
@@ -27,7 +25,7 @@ $(document).ready(function() {
             });
 
     });
-             $(document).on('keyup', '#projectId', function() {
+            $(document).on('keyup', '#projectId', function() {
             var projectId = $("#projectId").val();
             if (projectId != "") {
                 var url ="/dbdesign/Project?operation=getOne&projectId="+projectId+""; 
@@ -36,7 +34,7 @@ $(document).ready(function() {
                         type: 'POST'
                     })
                     .done(function(result) {
-                        result = JSON.parse(result);
+                      //  result = JSON.parse(result);
                         $("#projectName").val(result.proName);
                         $("#description").val(result.des);
                     });
