@@ -17,20 +17,20 @@ $(document).ready(function() {
             type: 'POST'
         }).done(function(result) {
         	getAll();
-            //alert("added successfully");
+            alert("added successfully");
         })
         .fail(function(result) {
             alert(result);
         });
     });
 });
-function getAll()
+$(document).on("click","#imge",function()
 {
 	var url = "/dbdesign/Protable?operation=getAll";
 	$.ajax({
-		url : url,
+		url: url,
 		type : 'POST'
-	}).done(function(result) {
+		}).done(function(result) {
 		var res=JSON.parse(result);
 		var div = "<div class='tabledetail'>"
 		for (var i = 0; i < res.length; i++) {
@@ -39,9 +39,9 @@ function getAll()
 
 		}
 		div += "</div>";
-		$(".tabdetail")[0].innerHTML = div;
+		$("#getAlltab")[0].innerHTML = div;
 	});
-}
+});
 
 
     

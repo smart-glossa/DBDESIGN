@@ -48,11 +48,11 @@ $(document).on('click','#tableadd',function(){
 	addtab +="";
 	addtab +="<table>";
 	addtab +="<tr>";
-	addtab +="<td>projectId</td>";
-	addtab +="<td><input type=\"text\" id=\"projectId\"><\/input><\/td><\/tr>";
-	addtab +="<tr>";
 	addtab +="<td>tableName</td>";
 	addtab +="<td><input type=\"text\"id=\"tableName\"><\/input><\/td><\/tr>";
+	addtab +="<tr>";
+	addtab +="<td>projectId</td>";
+	addtab +="<td><input type=\"text\" id=\"projectId\"><\/input><\/td><\/tr>";
 	addtab +="</table>";
 	addtab += "<input type=\"submit\" id=\"save\"  value=\"save\" ><\/input>";
 	addtab +="";

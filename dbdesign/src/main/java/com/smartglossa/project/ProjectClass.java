@@ -50,7 +50,21 @@ public class ProjectClass {
 		}
 	}
 
-	
+	public JSONObject gets(int projectId) throws SQLException {
+		JSONObject result = new JSONObject();
+		try {
+			String query = "select * from project where projectId=" + projectId;
+			res = sta.executeQuery(query);
+			if (res.next()) {
+				result.put("proName", res.getString("projectName"));
+				result.put("des", res.getString("description"));
+			}
+		} finally {
+			closeConnection();
+		}
+		return result;
+	}
+
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		con = DriverManager.getConnection(

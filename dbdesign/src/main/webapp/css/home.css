@@ -75,6 +75,17 @@
 	margin-left:100px;
 	float:left;
 }
+#getAlltab{
+	border:1px solid black;
+	float:left;
+	margin-top:-600px;
+	margin-left:500px;
+	text-align:center;
+	color:white;
+	width:300;
+	background-color:#000080;
+	
+}
 #click{
     margin-left:600px;
 	position:absolute;

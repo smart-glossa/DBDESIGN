@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+
 public class ProjectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,5 +51,20 @@ public class ProjectServlet extends HttpServlet {
         response.getWriter().println(result);
 
 }
+	else if(operation.equals("gets")){
+		JSONObject result=new JSONObject();
+		int projectId=Integer.parseInt(request.getParameter("projectId"));
+		try {
+			ProjectClass jj=new ProjectClass();
+		    result = jj.gets(projectId);
+		}
+		
+		catch (Exception e) {
+			result.put("status",0);
+			e.printStackTrace();
+			
+		}
+		response.getWriter().print(result);
+	}
 }
 }
