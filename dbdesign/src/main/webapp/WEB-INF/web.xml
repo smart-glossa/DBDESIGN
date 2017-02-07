@@ -29,6 +29,13 @@
     	<servlet-name>ProcolumnServlet</servlet-name>
     	<servlet-class>com.smartglossa.procolumns.ProcolumnServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>UserConstrant</display-name>
+    	<servlet-name>UserConstrant</servlet-name>
+    	<servlet-class>com.smartglossa.dbdesign.UserConstrant</servlet-class>
+    </servlet>
     
     <servlet-mapping>
     	<servlet-name>UserServlet</servlet-name>
@@ -45,6 +52,10 @@
     <servlet-mapping>
     	<servlet-name>ProcolumnServlet</servlet-name>
     	<url-pattern>/Procolumn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UserConstrant</servlet-name>
+    	<url-pattern>/UserConstrant</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,10 +5,16 @@ $(document).ready(function(){
     $(document).on('click','#project',function(){
     	$('.add').hide();
     })
+      /*$(document).on('click','#get',function(){
+       $('.').show();
+    });
+    $(document).on('click','#imge',function(){
+    	$('.details').hide();
+    })
      $(document).on('click','#get',function(){
        $('.done').show();
     });
     $(document).on('click','#save',function(){
     	$('.done').hide();
-    })
+    })*/
 });

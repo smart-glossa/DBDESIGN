@@ -16,42 +16,76 @@ public class ProtableClass {
 	Connection con = null;
 	Statement sta = null;
 	ResultSet res = null;
-	public ProtableClass()throws Exception {
+
+	public ProtableClass() throws Exception {
 		openConnection();
 
 	}
 
- 	public void proAdd(String tableName,int projectId) throws SQLException {
- 		try {
-			String qry = "insert into protable(tableName,projectId)values('"
-					+ tableName + "'," + projectId + ")";
+	public void proAdd(String tableName, int projectId) throws SQLException {
+		try {
+			String qry = "insert into protable(tableName,projectId)values('" + tableName + "'," + projectId + ")";
 			sta.execute(qry);
 		} finally {
 			closeConnection();
 		}
 
 	}
- 	public JSONArray getall() throws SQLException, ClassNotFoundException {
-        JSONArray result = new JSONArray();
-        try {
-            String query = "select * from protable";
-            res = sta.executeQuery(query);
-            while (res.next()) {
-                JSONObject get = new JSONObject();
-                get.put("tableId", res.getInt(1));
-                get.put("tableName", res.getString(2));
-                get.put("projectId", res.getInt(3));
-                result.put(get);
-            }
-            return result;
-        } finally {
-            closeConnection();
-        }
-    }
-	  
- 	private void openConnection() throws SQLException, ClassNotFoundException {
+
+	public JSONArray getall() throws SQLException, ClassNotFoundException {
+		JSONArray result = new JSONArray();
+		try {
+			String query = "select * from protable";
+			res = sta.executeQuery(query);
+			while (res.next()) {
+				JSONObject get = new JSONObject();
+				get.put("tableId", res.getInt(1));
+				get.put("tableName", res.getString(2));
+				get.put("projectId", res.getInt(3));
+				result.put(get);
+			}
+			return result;
+		} finally {
+			closeConnection();
+		}
+	}
+
+	public JSONObject gets(int tableId) throws SQLException {
+		JSONObject result = new JSONObject();
+		try {
+			String query = "select * from protable where tableId=" + tableId;
+			res = sta.executeQuery(query);
+			if (res.next()) {
+				result.put("tableName", res.getString("tableName"));
+				result.put("projectId", res.getString("projectId"));
+			}
+		} finally {
+			closeConnection();
+		}
+		return result;
+	}
+
+	public JSONArray getId(int projectId) throws SQLException {
+		JSONArray result = new JSONArray();
+		try {
+			String query = "select tableName from protable where projectId=" + projectId + "";
+			res = sta.executeQuery(query);
+			while (res.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("tableName", res.getString("tableName"));
+				result.put(obj);
+			}
+			return result;
+		} finally {
+			closeConnection();
+		}
+
+	}
+
+	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
+		con = DriverManager.getConnection(
+				"jdbc:mysql://" + UserConstrant.MYSQL_SERVER + "/" + UserConstrant.DATABASE_NAME,
 				UserConstrant.USERNAME, UserConstrant.PASSWORD);
 		sta = con.createStatement();
 
@@ -68,6 +102,5 @@ public class ProtableClass {
 		if (res != null) {
 			res.close();
 		}
-}
 	}
-
+}
