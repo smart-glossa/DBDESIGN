@@ -34,13 +34,13 @@ function getAllCol() {
             var array = JSON.parse(result);
             var qry = "<div id='tablecolumns' >"
 
-            if (result != "undefined") {
+          
                 for (var i = 0; i < array.length; i++) {
                     
                     qry += "<p id=" + array[i].tableId +"  class='cols'>" + array[i].columnName +"</p>";
                     
                 }
-            }
+            
             qry += "</div>"
             $(".getcol").append(qry);
         }).fail(function(result) {

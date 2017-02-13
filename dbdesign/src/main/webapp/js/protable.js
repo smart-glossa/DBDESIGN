@@ -52,11 +52,11 @@ $(document).on("click","#imge",function() {
         function(result) {
             var array = JSON.parse(result);
             var qry = "<div class='tabledetail' >"
-            if (result != "undefined") {
+           
                 for (var i = 0; i < array.length; i++) {
                     qry += "<p id=" + array[i].projectId +"  class='sd'>" + array[i].tableName + "</p>";
                 }
-            }
+            
             qry += "</div>"
             $("#getAlltab").append(qry);
         }).fail(function(result) {
