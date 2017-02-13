@@ -63,12 +63,16 @@ $(document).on("click","#imge",function() {
             alert(result);
         });
     });
-$(document).on('click','.sds',function() {
-    tableId = this.id;
+$(document).on('click','.sd',function() {
+    projectId = this.id;
     tableName = $(this).text();
-    var url = "/dbdesign/Protable?operation=gets&tableId="+tableId;
-    $.ajax(url).done(function(result) {
-        var rs = JSON.parse(result);
+    var url = "/dbdesign/Protable?operation=getId&projectId="+projectId;
+    $.ajax({
+    	url:url,
+    	type:'POST'
+    })
+    .done(function(result) {
+        var res = JSON.parse(result);
         if ($(".second").length > 0) {
             $(".second").remove();
         }
@@ -80,15 +84,15 @@ $(document).on('click','.sds',function() {
         var th = document.createElement("th");
         table.appendChild(th);
         th.setAttribute("class", "row header blue");
-        $(th).append(" tableName " +  tableName )
+        $(th).append(" productName " +  tableName +"InTableName")
         
         div2.appendChild(table);
-        for (var i = 0; i < rs.length; i++) {
+        for (var i = 0; i < res.length; i++) {
             var tr = document.createElement("tr");
             table.appendChild(tr);
             tr.setAttribute("id", "table");
             tr.setAttribute("class", "row");
-            $(tr).append(rs[i]);
+            $(tr).append(res[i]);
         }
         
     }).fail(function(result) {})
