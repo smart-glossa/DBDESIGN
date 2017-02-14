@@ -1,5 +1,5 @@
 
-function getAll() {
+function getAllDB() {
     var url = "/dbdesign/Project?operation=getAll";
     $.ajax({
         url: url,
@@ -7,16 +7,17 @@ function getAll() {
     })
     .done(
         function(result) {
-            var array = JSON.parse(result);
+            var re= JSON.parse(result);
             var qry = "<div class='fulldetail' >"
 
-            if (result != "undefined") {
-                for (var i = 0; i < array.length; i++) {
+            	 if (result != "undefined") {
+                for (var i = 0; i < re.length; i++) {
                     
-                    qry += "<p id=" + array[i].projectId +"  class='sds'>" + array[i].proName + "</p>";
+                    qry += "<p id=" + re[i].projectId +"  class='sds'>" + re[i].proName + "</p>";
                     
                 }
-            }
+            	 }
+            
             qry += "</div>"
             $(".details").append(qry);
         }).fail(function(result) {

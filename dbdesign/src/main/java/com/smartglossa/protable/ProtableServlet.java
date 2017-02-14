@@ -35,7 +35,7 @@ public class ProtableServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().println(obj);
-		} else if (operation.equals("getAll")) {
+		} else if (operation.equals("getAllTab")) {
 			JSONArray result = new JSONArray();
 			try {
 				ProtableClass get = new ProtableClass();

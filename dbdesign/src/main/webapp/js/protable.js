@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	getAll();
+	//getAllTable();
     $(document).on('click', '#save', function() {
         var tablename = $('#tableName').val();
     	var projectid = $('#projectId').val();   
@@ -16,7 +16,7 @@ $(document).ready(function() {
             url: url,
             type: 'POST'
         }).done(function(result) {
-        	getAll();
+        	//getAllTable();
             alert("added successfully");
         })
         .fail(function(result) {
@@ -43,7 +43,7 @@ $(document).ready(function() {
 	});
 });*/
 $(document).on("click","#imge",function() {
-	var url = "/dbdesign/Protable?operation=getAll";
+	var url = "/dbdesign/Protable?operation=getAllTab";
     $.ajax({
         url: url,
         type: 'POST'

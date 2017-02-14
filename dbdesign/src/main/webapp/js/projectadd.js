@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	//getAll();
+	getAllDB();
     $(document).on('click', '#project', function() {
         var proName= $("#proName").val();
         var des = $("#des").val();
@@ -17,7 +17,7 @@ $(document).ready(function() {
                 url: url,
                 type: 'POST'
             }).done(function(result) {
-            	//getAll();
+            	getAllDB();
                 alert(result);
             })
             .fail(function(result) {
